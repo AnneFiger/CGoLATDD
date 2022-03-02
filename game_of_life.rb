@@ -11,7 +11,12 @@ class GameOfLife
   end
 
   def new_state_of_cell(cell, living_neighbours_count)
-    cell
+    if cell == :live && living_neighbours_count == 0 
+      cell = :dead
+      return cell
+    else
+      cell
+    end
   end
 
   def number_of_living_neighbours(cell_row, cell_column, grid)
