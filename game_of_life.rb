@@ -11,9 +11,13 @@ class GameOfLife
   end
 
   def new_state_of_cell(cell, living_neighbours_count)
-    if cell == :live && living_neighbours_count == 0 
+    if cell == :live && living_neighbours_count <= 1 
       cell = :dead
       return cell
+
+    elsif cell == :live && living_neighbours_count > 3 
+        cell = :dead
+        return cell 
     else
       cell
     end
